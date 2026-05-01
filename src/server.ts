@@ -1,6 +1,7 @@
 // src/server.ts
 import express, { Application } from 'express';
 import cors from 'cors';
+import path from 'path';
 import { errorHandler } from './_middleware/errorHandler';
 import { initialize } from './_helpers/db';
 import usersController from './users/users.controller';
@@ -14,6 +15,11 @@ app.use(cors());
 
 // API Routes
 app.use('/users', usersController);
+app.use(express.static(path.resolve(process.cwd(), 'frontend')));
+
+app.get('/', (_req, res) => {
+  res.sendFile(path.resolve(process.cwd(), 'frontend', 'index.html'));
+});
 
 // Global Error Handler (must be last)
 app.use(errorHandler);

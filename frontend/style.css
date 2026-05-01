@@ -1,0 +1,33 @@
+body {
+    margin: 0%;
+    padding-top: 10%;
+}
+
+body.not-authenticated .role-logged-in { 
+    display: none; 
+}
+
+body.authenticated .role-logged-out { 
+    display: none; 
+}
+
+.role-admin { 
+    display: none; 
+}
+
+body.is-admin .role-admin { 
+    display: block; 
+}
+
+.page {
+    display: none;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+    box-sizing: border-box;
+}
+
+.page.active {
+    display: block;
+}
+
